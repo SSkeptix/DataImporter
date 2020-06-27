@@ -2,13 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\DataImporter.FileHandler\DataImporter.FileHandler.csproj" />
     <ProjectReference Include="..\DataImporter\DataImporter.csproj" />
   </ItemGroup>
-
-
 
 </Project>
