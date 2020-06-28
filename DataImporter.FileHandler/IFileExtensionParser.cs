@@ -1,6 +1,6 @@
 ﻿namespace DataImporter.FileHandler
 {
-	interface IFileExtensionParser
+	public interface IFileExtensionParser
 	{
 		FileExtension ParseFileExtension(string filePath);
 	}
