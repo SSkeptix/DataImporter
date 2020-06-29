@@ -7,15 +7,19 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
+using Microsoft.Extensions.Logging;
 
 namespace DataImporter.Services.Impl.Parsers
 {
 	public class XmlTransactionParser : FileParser<Transaction>
 	{
+		private readonly ILogger logger;
 		private readonly IXmlFileReader xmlFileReader;
 
-		public XmlTransactionParser(IXmlFileReader xmlFileReader)
+		public XmlTransactionParser(ILogger logger,
+			IXmlFileReader xmlFileReader)
 		{
+			this.logger = logger;
 			this.xmlFileReader = xmlFileReader;
 		}
 
@@ -28,10 +32,13 @@ namespace DataImporter.Services.Impl.Parsers
 			if (this.IsArrayValid(xmlTransactions, ValidationRules, out var error))
 			{
 				var transactions = xmlTransactions.Select(Map).ToArray();
+				this.logger.LogTrace($"{nameof(XmlTransactionParser)} successfully parsed {transactions.Length} transactions");
 				return Task.FromResult(transactions);
 			}
 			else
 			{
+				this.logger.LogInformation("{nameof(XmlTransactionParser)} found invalid transactions during parsing. " +
+					$"Details: {Environment.NewLine}{error}");
 				return Task.FromException<Transaction[]>(new ArgumentException(error));
 			}
 		}

@@ -6,15 +6,19 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
 namespace DataImporter.Services.Impl.Parsers
 {
 	public class CsvTransactionParser : FileParser<Transaction>
 	{
+		private readonly ILogger logger;
 		private readonly ICsvFileReader csvFileReader;
 
-		public CsvTransactionParser(ICsvFileReader csvFileReader)
+		public CsvTransactionParser(ILogger logger,
+			ICsvFileReader csvFileReader)
 		{
+			this.logger = logger;
 			this.csvFileReader = csvFileReader;
 		}
 
@@ -26,10 +30,14 @@ namespace DataImporter.Services.Impl.Parsers
 
 			if (this.IsArrayValid(csvTransactions, ValidationRules, out var error))
 			{
-				return csvTransactions.Select(Map).ToArray();
+				var transactions = csvTransactions.Select(Map).ToArray();
+				this.logger.LogTrace($"{nameof(CsvTransactionParser)} successfully parsed {transactions.Length} transactions");
+				return transactions;
 			}
 			else
 			{
+				this.logger.LogInformation("{nameof(CsvTransactionParser)} found invalid transactions during parsing. " +
+					$"Details: {Environment.NewLine}{error}");
 				throw new ArgumentException(error);
 			}
 		}

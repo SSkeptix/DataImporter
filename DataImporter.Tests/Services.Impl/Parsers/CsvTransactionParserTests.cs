@@ -1,5 +1,4 @@
-﻿using AutoFixture;
-using DataImporter.FileHandler;
+﻿using DataImporter.FileHandler;
 using DataImporter.Entities;
 using DataImporter.Services.Impl.Parsers;
 using Moq;
@@ -7,6 +6,7 @@ using System;
 using System.IO;
 using Xunit;
 using CsvTransaction = DataImporter.Services.Impl.Parsers.CsvTransactionParser.CsvTransaction;
+using Microsoft.Extensions.Logging;
 
 namespace DataImporter.Tests.Services.Impl.Parsers
 {
@@ -14,16 +14,14 @@ namespace DataImporter.Tests.Services.Impl.Parsers
 	{
 		private readonly Mock<ICsvFileReader> csvFileReader;
 
-		private readonly IFixture fixture;
 		private readonly CsvTransactionParser subject;
 
 		public CsvTransactionParserTests()
 		{
-			this.fixture = new Fixture();
-
 			this.csvFileReader = new Mock<ICsvFileReader>();
+			var logger = new Mock<ILogger>();
 
-			this.subject = new CsvTransactionParser(this.csvFileReader.Object);
+			this.subject = new CsvTransactionParser(logger.Object, this.csvFileReader.Object);
 		}
 
 		private CsvTransaction ValidTransaction => new CsvTransaction

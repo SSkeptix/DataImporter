@@ -1,5 +1,4 @@
-﻿using AutoFixture;
-using DataImporter.FileHandler;
+﻿using DataImporter.FileHandler;
 using DataImporter.Entities;
 using DataImporter.Services.Impl.Parsers;
 using Moq;
@@ -8,6 +7,7 @@ using System.IO;
 using Xunit;
 using XmlTransactions = DataImporter.Services.Impl.Parsers.XmlTransactionParser.XmlTransactions;
 using XmlTransaction = DataImporter.Services.Impl.Parsers.XmlTransactionParser.XmlTransaction;
+using Microsoft.Extensions.Logging;
 
 namespace DataImporter.Tests.Services.Impl.Parsers
 {
@@ -15,16 +15,14 @@ namespace DataImporter.Tests.Services.Impl.Parsers
 	{
 		private readonly Mock<IXmlFileReader> xmlFileReader;
 
-		private readonly IFixture fixture;
 		private readonly XmlTransactionParser subject;
 
 		public XmlTransactionParserTests()
 		{
-			this.fixture = new Fixture();
-
+			var logger = new Mock<ILogger>();
 			this.xmlFileReader = new Mock<IXmlFileReader>();
 
-			this.subject = new XmlTransactionParser(this.xmlFileReader.Object);
+			this.subject = new XmlTransactionParser(logger.Object, this.xmlFileReader.Object);
 		}
 
 		private XmlTransaction ValidTransaction => new XmlTransaction
