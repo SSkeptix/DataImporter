@@ -72,6 +72,7 @@ namespace DataImporter.Tests.Services.Impl
         }
 
         public class TestEntityA { }
+
         public class TestEntityB { }
     }
 }

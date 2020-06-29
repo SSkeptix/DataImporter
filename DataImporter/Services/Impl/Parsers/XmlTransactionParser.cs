@@ -102,6 +102,7 @@ namespace DataImporter.Services.Impl.Parsers
         {
             [XmlAttribute(AttributeName = "id")]
             public string Id { get; set; }
+
             public string TransactionDate { get; set; }
 
             [XmlElement()]
@@ -112,6 +113,7 @@ namespace DataImporter.Services.Impl.Parsers
             public class PaymentDetailsModel
             {
                 public string Amount { get; set; }
+
                 public string CurrencyCode { get; set; }
             }
         }

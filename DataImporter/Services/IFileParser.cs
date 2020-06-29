@@ -62,6 +62,7 @@ namespace DataImporter.Services
     public class ValidationRule<T>
     {
         public Func<T, bool> Rule { get; set; }
+
         public string ErrorMessage { get; set; }
     }
 }

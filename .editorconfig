@@ -3,6 +3,9 @@
 # IDE0005: Using directive is unnecessary.
 dotnet_diagnostic.IDE0005.severity = error
 
+# IDE0055: Fix formatting
+dotnet_diagnostic.IDE0055.severity = error
+
 # SA1024: Colons Should Be Spaced Correctly
 dotnet_diagnostic.SA1024.severity = error
 
@@ -23,6 +26,9 @@ dotnet_diagnostic.SA1208.severity = none
 
 # SA1210: Using directives should be ordered alphabetically by namespace
 dotnet_diagnostic.SA1210.severity = error
+
+# SA1516: Elements should be separated by blank line
+dotnet_diagnostic.SA1516.severity = error
 
 # SA1600: Elements should be documented
 dotnet_diagnostic.SA1600.severity = none

@@ -4,6 +4,7 @@
         where T : class
     {
         public T[] Items { get; set; }
+
         public int Count { get; set; }
 
         public SearchResult() { }

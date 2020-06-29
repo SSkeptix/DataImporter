@@ -9,7 +9,7 @@ namespace Infrastructure
             where T : Enum
         {
             var values = Enum.GetValues(typeof(T)).Cast<T>();
-            var valueQuery = values.Where(x => string.Equals(x.ToString(), s, stringComparison));    
+            var valueQuery = values.Where(x => string.Equals(x.ToString(), s, stringComparison));
             result = valueQuery.SingleOrDefault();
             return valueQuery.Any();
         }
