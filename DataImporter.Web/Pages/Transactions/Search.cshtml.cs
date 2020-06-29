@@ -34,11 +34,14 @@ namespace DataImporter.Web.Pages.Transactions
         [BindProperty(SupportsGet = true)]
         public int PageNumber { get; set; } = 1;
 
+        [BindProperty(SupportsGet = true)]
+        public bool Json { get; set; }
+
         public TransactionModel[] Transactions { get; private set; }
 
         public Pagination Pagination { get; private set; }
 
-        public async Task OnGet()
+        public async Task<IActionResult> OnGet()
         {
             this.PageNumber = Math.Max(this.PageNumber, 1);
 
@@ -65,6 +68,10 @@ namespace DataImporter.Web.Pages.Transactions
                 .ToArray();
 
             this.Pagination = new Pagination((page) => $"filter({page})", result.Count, this.PageNumber, takeCount);
+
+            return this.Json
+                ? new OkObjectResult(this.Transactions)
+                : (IActionResult)this.Page();
         }
 
         public class TransactionModel

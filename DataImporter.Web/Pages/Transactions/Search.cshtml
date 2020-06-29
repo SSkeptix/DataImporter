@@ -30,6 +30,10 @@
         <label>To Date</label>
         <input id="to-date" asp-for="ToDate" class="form-control" type="datetime-local" />
     </div>
+    <div class="form-group custom-control custom-checkbox">
+        <input id="json" class="custom-control-input" type="checkbox" />
+        <label class="custom-control-label" for="json">Json View</label>
+    </div>
     <button id="filter-button" class="btn btn-success">Filter</button>
 </div>
 
@@ -68,6 +72,7 @@
                 Status: $("#status").val(),
                 FromDate: $("#from-date").val(),
                 ToDate: $("#to-date").val(),
+                Json: $("#json").is(':checked'),
             };
 
             const url = window.location.origin + window.location.pathname + "?" + $.param(queryParams);
