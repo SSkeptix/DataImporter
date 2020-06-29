@@ -1,5 +1,8 @@
 ﻿[*.cs]
 
+# IDE0005: Using directive is unnecessary.
+dotnet_diagnostic.IDE0005.severity = error
+
 # SA1027: Use tabs correctly
 dotnet_diagnostic.SA1027.severity = error
 
