@@ -2,6 +2,7 @@
 {
     public interface IFileParserFactory
     {
-        IFileParser<T> GetParser<T>(string filePath) where T : class;
+        IFileParser<T> GetParser<T>(string filePath)
+            where T : class;
     }
 }

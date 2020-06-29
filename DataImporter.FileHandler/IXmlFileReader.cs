@@ -4,6 +4,7 @@ namespace DataImporter.FileHandler
 {
     public interface IXmlFileReader
     {
-        T ReadFile<T>(Stream sourceStream) where T : class;
+        T ReadFile<T>(Stream sourceStream)
+            where T : class;
     }
 }

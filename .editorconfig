@@ -6,6 +6,9 @@ dotnet_diagnostic.IDE0005.severity = error
 # SA1027: Use tabs correctly
 dotnet_diagnostic.SA1027.severity = error
 
+# SA1127: Generic type constraints should be on their own line
+dotnet_diagnostic.SA1127.severity = error
+
 # SA1200: Using directives should be placed correctly
 dotnet_diagnostic.SA1200.severity = none
 
