@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace DataImporter.Repositories
 {
-	public interface ITransactionRepository
-	{
-		Task InsertTransaction(params Transaction[] transactions);
+    public interface ITransactionRepository
+    {
+        Task InsertTransaction(params Transaction[] transactions);
 
-		Task<SearchResult<Transaction>> SearchTransaction(TransactionSearchOptions searchOptions);
-	}
+        Task<SearchResult<Transaction>> SearchTransaction(TransactionSearchOptions searchOptions);
+    }
 }

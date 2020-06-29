@@ -3,8 +3,8 @@ using System.Threading.Tasks;
 
 namespace DataImporter.Services
 {
-	public interface ITransactionService
-	{
-		Task ImportTransactionsFromFile(Stream stream, string fileName);
-	}
+    public interface ITransactionService
+    {
+        Task ImportTransactionsFromFile(Stream stream, string fileName);
+    }
 }
