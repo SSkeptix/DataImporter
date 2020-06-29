@@ -7,11 +7,11 @@ namespace DataImporter.Tests.FileHandler.Impl
 {
 	public class FileExtensionParserTests
 	{
-		private readonly FileExtensionParser fileExtensionParser;
+		private readonly FileExtensionParser subject;
 
 		public FileExtensionParserTests()
 		{
-			this.fileExtensionParser = new FileExtensionParser();
+			this.subject = new FileExtensionParser();
 		}
 
 		[Theory]
@@ -29,7 +29,7 @@ namespace DataImporter.Tests.FileHandler.Impl
 		public void ParseFileExtension_ExtensionIsSupported_ReturnProperExtension(FileExtension expectedFileExtension, string filePath)
 		{
 			// Act
-			var fileExtension = this.fileExtensionParser.ParseFileExtension(filePath);
+			var fileExtension = this.subject.ParseFileExtension(filePath);
 
 			// Assert
 			Assert.Equal(expectedFileExtension, fileExtension);
@@ -53,7 +53,7 @@ namespace DataImporter.Tests.FileHandler.Impl
 		public void ParseFileExtension_ExtensionIsNotSupported_ThrowArgumentException(string filePath)
 		{
 			// Act & Assert
-			Assert.Throws<ArgumentException>(() => this.fileExtensionParser.ParseFileExtension(filePath));
+			Assert.Throws<ArgumentException>(() => this.subject.ParseFileExtension(filePath));
 		}
 	}
 }
