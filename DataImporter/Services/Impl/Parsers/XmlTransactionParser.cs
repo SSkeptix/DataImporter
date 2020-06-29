@@ -94,13 +94,13 @@ namespace DataImporter.Services.Impl.Parsers
         }
 
         [XmlRoot(ElementName = "Transactions")]
-        internal class XmlTransactions
+        public class XmlTransactions
         {
             [XmlElement("Transaction")]
             public XmlTransaction[] Transactions { get; set; }
         }
 
-        internal class XmlTransaction
+        public class XmlTransaction
         {
             [XmlAttribute(AttributeName = "id")]
             public string Id { get; set; }
