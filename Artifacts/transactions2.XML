@@ -1,5 +1,5 @@
 <Transactions>
-	<Transaction id="Inv00005">
+	<Transaction id="Inv00007">
 		<TransactionDate>2019-01-23T13:45:10</TransactionDate>
 		<PaymentDetails>
 			<Amount>200.00</Amount>
@@ -7,7 +7,7 @@
 		</PaymentDetails>
 		<Status>Done</Status>
 	</Transaction>
-	<Transaction id="Inv00006">
+	<Transaction id="Inv00008">
 		<TransactionDate>2019-01-24T16:09:15</TransactionDate>
 		<PaymentDetails>
 			<Amount>10000.00</Amount>
