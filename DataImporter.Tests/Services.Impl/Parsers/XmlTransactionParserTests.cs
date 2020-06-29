@@ -76,7 +76,7 @@ namespace DataImporter.Tests.Services.Impl.Parsers
                             TransactionDate = "2019-02-21T02:04:59",
                             Status = "Rejected",
                         },
-                    }
+                    },
                 };
 
                 this.xmlFileReader.Setup(x => x.ReadFile<XmlTransactions>(sourceStream))

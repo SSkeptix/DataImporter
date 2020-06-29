@@ -6,6 +6,9 @@ dotnet_diagnostic.IDE0005.severity = error
 # IDE0055: Fix formatting
 dotnet_diagnostic.IDE0055.severity = error
 
+# SA0001: XML comment analysis is disabled due to project configuration	DataImporter
+dotnet_diagnostic.SA0001.severity = none
+
 # SA1024: Colons Should Be Spaced Correctly
 dotnet_diagnostic.SA1024.severity = error
 
@@ -15,11 +18,20 @@ dotnet_diagnostic.SA1027.severity = error
 # SA1101: Prefix local calls with this
 dotnet_diagnostic.SA1101.severity = error
 
+# SA1116: Split parameters should start on line after declaration
+dotnet_diagnostic.SA1116.severity = error
+
 # SA1127: Generic type constraints should be on their own line
 dotnet_diagnostic.SA1127.severity = error
 
 # SA1200: Using directives should be placed correctly
 dotnet_diagnostic.SA1200.severity = none
+
+# SA1201: Elements should appear in the correct order
+dotnet_diagnostic.SA1201.severity = none
+
+# SA1203: Constants should appear before fields
+dotnet_diagnostic.SA1203.severity = none
 
 # SA1208: System using directives should be placed before other using directives
 dotnet_diagnostic.SA1208.severity = none
@@ -27,11 +39,32 @@ dotnet_diagnostic.SA1208.severity = none
 # SA1210: Using directives should be ordered alphabetically by namespace
 dotnet_diagnostic.SA1210.severity = error
 
+# SA1402: File may only contain a single type
+dotnet_diagnostic.SA1402.severity = none
+
+# SA1411: Attribute constructor should not use unnecessary parenthesis
+dotnet_diagnostic.SA1411.severity = error
+
+# SA1413: Use trailing comma in multi-line initializers
+dotnet_diagnostic.SA1413.severity = error
+
+# SA1502: Element should not be on a single line
+dotnet_diagnostic.SA1502.severity = none
+
+# SA1507: Code should not contain multiple blank lines in a row
+dotnet_diagnostic.SA1507.severity = error
+
+# SA1508: Closing braces should not be preceded by blank line
+dotnet_diagnostic.SA1508.severity = error
+
 # SA1516: Elements should be separated by blank line
 dotnet_diagnostic.SA1516.severity = error
 
 # SA1600: Elements should be documented
 dotnet_diagnostic.SA1600.severity = none
+
+# SA1602: Enumeration items should be documented
+dotnet_diagnostic.SA1602.severity = none
 
 # SA1633: File should have header
 dotnet_diagnostic.SA1633.severity = none

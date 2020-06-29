@@ -15,7 +15,8 @@ namespace DataImporter.Services.Impl.Parsers
         private readonly ILogger logger;
         private readonly ICsvFileReader csvFileReader;
 
-        public CsvTransactionParser(ILogger logger,
+        public CsvTransactionParser(
+            ILogger logger,
             ICsvFileReader csvFileReader)
         {
             this.logger = logger;
@@ -92,7 +93,7 @@ namespace DataImporter.Services.Impl.Parsers
                     CsvTransactionStatus.Failed => TransactionStatus.Rejected,
                     CsvTransactionStatus.Finished => TransactionStatus.Done,
                     _ => throw new ArgumentException("Unknown transaction status"),
-                }
+                },
             };
         }
 

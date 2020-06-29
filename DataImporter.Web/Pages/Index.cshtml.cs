@@ -14,7 +14,6 @@ namespace DataImporter.Web.Pages
 
         public void OnGet()
         {
-
         }
     }
 }

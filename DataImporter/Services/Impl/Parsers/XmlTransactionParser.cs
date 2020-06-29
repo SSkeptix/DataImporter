@@ -16,7 +16,8 @@ namespace DataImporter.Services.Impl.Parsers
         private readonly ILogger logger;
         private readonly IXmlFileReader xmlFileReader;
 
-        public XmlTransactionParser(ILogger logger,
+        public XmlTransactionParser(
+            ILogger logger,
             IXmlFileReader xmlFileReader)
         {
             this.logger = logger;
@@ -105,7 +106,7 @@ namespace DataImporter.Services.Impl.Parsers
 
             public string TransactionDate { get; set; }
 
-            [XmlElement()]
+            [XmlElement]
             public PaymentDetailsModel PaymentDetails { get; set; }
 
             public string Status { get; set; }
@@ -118,6 +119,4 @@ namespace DataImporter.Services.Impl.Parsers
             }
         }
     }
-
-
 }

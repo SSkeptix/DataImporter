@@ -28,7 +28,7 @@ namespace DataImporter.Tests.Services.Impl
 
             this.fileParserFactory = new Mock<IFileParserFactory>();
             var logger = new Mock<ILogger>();
-            this.transactionRepository = new Mock<ITransactionRepository>();    
+            this.transactionRepository = new Mock<ITransactionRepository>();
 
             this.subject = new TransactionService(this.fileParserFactory.Object, logger.Object, this.transactionRepository.Object);
         }
