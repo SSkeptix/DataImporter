@@ -1,0 +1,49 @@
+﻿@model Pagination
+
+@{
+    Layout = null;
+    bool _disabled;
+
+    string GenerateLink(int page) => $"/{Model.BaseUrl}?{Model.PageTag}={page}";
+    string GenerateOnClick(int page) => Model.OnClick(page);
+
+    string GenerateAction(int page, bool disabled)
+    {
+        string d = disabled
+            ? null
+            : Model.OnClick != null
+                ? $"onclick=\"{GenerateOnClick(page)};\""
+                : $"href=\"{GenerateLink(page)}\"";
+        return d;
+    }
+}
+
+@if (Model.Pager.Pages.Any())
+{
+    <center>
+        <ul class="pagination justify-content-center d-flex flex-wrap">
+            @{ _disabled = Model.Pager.CurrentPage <= 1; }
+            <li class="page-item @(_disabled ? "disabled" : "")">
+                <a class="page-link" @Html.Raw(GenerateAction(1, _disabled))>&lt;&lt;</a>
+            </li>
+            <li class="page-item @(_disabled ? "disabled" : "")">
+                <a class="page-link" @Html.Raw(GenerateAction(Model.Pager.CurrentPage - 1, _disabled))>&lt;</a>
+            </li>
+
+            @foreach (var page in Model.Pager.Pages)
+            {
+                _disabled = page == Model.Pager.CurrentPage;
+                <li class="page-item @(_disabled ? "active" : "desktop-pagination-link")">
+                    <a class="page-link" @Html.Raw(GenerateAction(page, _disabled))>@(page)</a>
+                </li>
+            }
+            @{ _disabled = Model.Pager.CurrentPage >= Model.Pager.TotalPages; }
+            <li class="page-item @(_disabled ? "disabled" : "")">
+                <a class="page-link" @Html.Raw(GenerateAction(Model.Pager.CurrentPage + 1, _disabled))>&gt;</a>
+            </li>
+            <li class="page-item @(_disabled ? "disabled" : "")">
+                <a class="page-link" @Html.Raw(GenerateAction(Model.Pager.TotalPages, _disabled))>&gt;&gt;</a>
+            </li>
+        </ul>
+    </center>
+}
