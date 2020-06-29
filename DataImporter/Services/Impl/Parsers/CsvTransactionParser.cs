@@ -1,5 +1,6 @@
 ﻿using DataImporter.Entities;
 using DataImporter.FileHandler;
+using DataImporter.Models;
 using Infrastructure;
 using Microsoft.Extensions.Logging;
 using System;
@@ -39,7 +40,7 @@ namespace DataImporter.Services.Impl.Parsers
             {
                 this.logger.LogInformation("{nameof(CsvTransactionParser)} found invalid transactions during parsing. " +
                     $"Details: {Environment.NewLine}{error}");
-                throw new ArgumentException(error);
+                throw new ParsingException(error);
             }
         }
 

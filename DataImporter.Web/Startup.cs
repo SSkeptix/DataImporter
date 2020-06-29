@@ -1,4 +1,3 @@
-using DataImporter.Entities;
 using DataImporter.FileHandler;
 using DataImporter.FileHandler.Impl;
 using DataImporter.Repositories;
@@ -72,8 +71,8 @@ namespace DataImporter.Web
             services.AddTransient<ITransactionService, TransactionService>();
 
             services.AddTransient<IFileParserFactory, FileParserFactory>();
-            services.AddTransient<IFileParser<Transaction>, CsvTransactionParser>();
-            services.AddTransient<IFileParser<Transaction>, XmlTransactionParser>();
+            services.AddTransient<IFileParser, CsvTransactionParser>();
+            services.AddTransient<IFileParser, XmlTransactionParser>();
 
             services.AddTransient<IFileExtensionParser, FileExtensionParser>();
             services.AddTransient<ICsvFileReader, CsvFileReader>();

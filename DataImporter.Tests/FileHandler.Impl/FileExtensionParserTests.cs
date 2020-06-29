@@ -1,6 +1,5 @@
 ﻿using DataImporter.FileHandler;
 using DataImporter.FileHandler.Impl;
-using System;
 using Xunit;
 
 namespace DataImporter.Tests.FileHandler.Impl
@@ -53,7 +52,7 @@ namespace DataImporter.Tests.FileHandler.Impl
         public void ParseFileExtension_ExtensionIsNotSupported_ThrowArgumentException(string filePath)
         {
             // Act & Assert
-            Assert.Throws<ArgumentException>(() => this.subject.ParseFileExtension(filePath));
+            Assert.Throws<FileExtensionException>(() => this.subject.ParseFileExtension(filePath));
         }
     }
 }

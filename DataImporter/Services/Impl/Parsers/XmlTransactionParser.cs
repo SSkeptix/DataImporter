@@ -1,5 +1,6 @@
 ﻿using DataImporter.Entities;
 using DataImporter.FileHandler;
+using DataImporter.Models;
 using Infrastructure;
 using Microsoft.Extensions.Logging;
 using System;
@@ -40,7 +41,7 @@ namespace DataImporter.Services.Impl.Parsers
             {
                 this.logger.LogInformation("{nameof(XmlTransactionParser)} found invalid transactions during parsing. " +
                     $"Details: {Environment.NewLine}{error}");
-                return Task.FromException<Transaction[]>(new ArgumentException(error));
+                return Task.FromException<Transaction[]>(new ParsingException(error));
             }
         }
 

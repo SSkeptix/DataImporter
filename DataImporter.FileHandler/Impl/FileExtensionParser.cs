@@ -21,7 +21,7 @@ namespace DataImporter.FileHandler.Impl
 
             return fileExtensionQuery.Any()
                 ? fileExtensionQuery.First()
-                : throw new ArgumentException("Unknown File Extension");
+                : throw new FileExtensionException("Unknown File Extension");
         }
     }
 }

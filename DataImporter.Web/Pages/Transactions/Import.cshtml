@@ -4,4 +4,55 @@
     ViewData["Title"] = "Transactions | Import";
 }
 
-<h1>Import</h1>
+<h2>Import Transactions</h2>
+<br />
+
+<div id="alerts"></div>
+
+<form method="post">
+    <input id="file" type="file" accept=".xml,.csv" required />
+    <button id="upload">Upload</button>
+</form>
+
+@section Scripts {
+    <script>
+        function notify(level, msg) {
+            var alerts = $("#alerts")[0];
+            alerts.innerHTML += 
+                `<div class="alert alert-${level} alert-dismissible fade show" role="alert">
+                  ${msg}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>`;
+        }
+
+        document.getElementById("upload").onclick = function (e) {
+            var files = $("#file")[0].files;
+            if (files == undefined || files.length == 0) {
+                return;
+            }
+
+            e.preventDefault();
+
+            let formData = new FormData();
+            formData.append("file", files[0]);
+
+            fetch("Import", {
+                method: "POST",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                body: formData
+            }).then(function (response) {
+                if (response.ok) {
+                    notify("success", "<strong>Success!</strong> Transactions successfully imported.")
+                } else {
+                    response.json().then(function (result) {
+                        notify("danger", `<strong>Error!</strong> ${result.error}`)
+                    }).catch(function (error) {
+                        notify("danger", `<strong>Error!</strong> ${error}`)
+                    })
+                }
+            });
+        }
+    </script>
+}

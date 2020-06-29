@@ -1,5 +1,6 @@
 ﻿using DataImporter.Entities;
 using DataImporter.FileHandler;
+using DataImporter.Models;
 using DataImporter.Services.Impl.Parsers;
 using Microsoft.Extensions.Logging;
 using Moq;
@@ -115,7 +116,7 @@ namespace DataImporter.Tests.Services.Impl.Parsers
                     .Returns(new XmlTransactions { Transactions = new XmlTransaction[] { xmlTransaction } });
 
                 // Act & Assert
-                Assert.ThrowsAsync<ArgumentException>(() => this.subject.Parse(sourceStream));
+                Assert.ThrowsAsync<ParsingException>(() => this.subject.Parse(sourceStream));
             }
         }
 
@@ -132,7 +133,7 @@ namespace DataImporter.Tests.Services.Impl.Parsers
                     .Returns(new XmlTransactions { Transactions = new XmlTransaction[] { xmlTransaction } });
 
                 // Act & Assert
-                Assert.ThrowsAsync<ArgumentException>(() => this.subject.Parse(sourceStream));
+                Assert.ThrowsAsync<ParsingException>(() => this.subject.Parse(sourceStream));
             }
         }
 
@@ -152,7 +153,7 @@ namespace DataImporter.Tests.Services.Impl.Parsers
                     .Returns(new XmlTransactions { Transactions = new XmlTransaction[] { xmlTransaction } });
 
                 // Act & Assert
-                Assert.ThrowsAsync<ArgumentException>(() => this.subject.Parse(sourceStream));
+                Assert.ThrowsAsync<ParsingException>(() => this.subject.Parse(sourceStream));
             }
         }
 
@@ -174,7 +175,7 @@ namespace DataImporter.Tests.Services.Impl.Parsers
                     .Returns(new XmlTransactions { Transactions = new XmlTransaction[] { xmlTransaction } });
 
                 // Act & Assert
-                Assert.ThrowsAsync<ArgumentException>(() => this.subject.Parse(sourceStream));
+                Assert.ThrowsAsync<ParsingException>(() => this.subject.Parse(sourceStream));
             }
         }
 
@@ -217,7 +218,7 @@ namespace DataImporter.Tests.Services.Impl.Parsers
                     .Returns(new XmlTransactions { Transactions = new XmlTransaction[] { xmlTransaction } });
 
                 // Act & Assert
-                Assert.ThrowsAsync<ArgumentException>(() => this.subject.Parse(sourceStream));
+                Assert.ThrowsAsync<ParsingException>(() => this.subject.Parse(sourceStream));
             }
         }
 
@@ -257,7 +258,7 @@ namespace DataImporter.Tests.Services.Impl.Parsers
                     .Returns(new XmlTransactions { Transactions = new XmlTransaction[] { xmlTransaction } });
 
                 // Act & Assert
-                Assert.ThrowsAsync<ArgumentException>(() => this.subject.Parse(sourceStream));
+                Assert.ThrowsAsync<ParsingException>(() => this.subject.Parse(sourceStream));
             }
         }
 
