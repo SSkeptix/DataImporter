@@ -3,6 +3,9 @@
 # IDE0005: Using directive is unnecessary.
 dotnet_diagnostic.IDE0005.severity = error
 
+# SA1024: Colons Should Be Spaced Correctly
+dotnet_diagnostic.SA1024.severity = error
+
 # SA1027: Use tabs correctly
 dotnet_diagnostic.SA1027.severity = error
 

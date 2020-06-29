@@ -15,7 +15,7 @@ namespace DataImporter.FileHandler.Impl
         };
 
         public async Task<T[]> ReadFile<T>(Stream sourceStream)
-            where T: class
+            where T : class
         {
             using (var textReader = new StreamReader(sourceStream))
             using (var csvReader = new CsvReader(textReader, Configuration))
