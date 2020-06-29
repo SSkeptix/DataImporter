@@ -1,4 +1,4 @@
-﻿namespace DataImporter.Models
+﻿namespace DataImporter.Entities
 {
 	public enum TransactionStatus
 	{

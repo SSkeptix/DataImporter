@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DataImporter.Models
+namespace DataImporter.Entities
 {
 	public class Transaction
 	{

@@ -1,6 +1,6 @@
 ﻿using AutoFixture;
 using DataImporter.FileHandler;
-using DataImporter.Models;
+using DataImporter.Entities;
 using DataImporter.Services.Impl.Parsers;
 using Moq;
 using System;

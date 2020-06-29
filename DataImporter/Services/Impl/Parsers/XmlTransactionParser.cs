@@ -1,5 +1,5 @@
 ﻿using DataImporter.FileHandler;
-using DataImporter.Models;
+using DataImporter.Entities;
 using Infrastructure;
 using System;
 using System.Globalization;
