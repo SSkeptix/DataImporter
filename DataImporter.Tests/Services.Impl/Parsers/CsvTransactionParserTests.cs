@@ -1,12 +1,12 @@
-﻿using DataImporter.FileHandler;
-using DataImporter.Entities;
+﻿using DataImporter.Entities;
+using DataImporter.FileHandler;
 using DataImporter.Services.Impl.Parsers;
+using Microsoft.Extensions.Logging;
 using Moq;
 using System;
 using System.IO;
 using Xunit;
 using CsvTransaction = DataImporter.Services.Impl.Parsers.CsvTransactionParser.CsvTransaction;
-using Microsoft.Extensions.Logging;
 
 namespace DataImporter.Tests.Services.Impl.Parsers
 {

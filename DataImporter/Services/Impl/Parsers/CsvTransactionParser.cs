@@ -1,12 +1,12 @@
-﻿using DataImporter.FileHandler;
-using DataImporter.Entities;
+﻿using DataImporter.Entities;
+using DataImporter.FileHandler;
 using Infrastructure;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Logging;
 
 namespace DataImporter.Services.Impl.Parsers
 {

@@ -1,13 +1,13 @@
-﻿using DataImporter.FileHandler;
-using DataImporter.Entities;
+﻿using DataImporter.Entities;
+using DataImporter.FileHandler;
 using DataImporter.Services.Impl.Parsers;
+using Microsoft.Extensions.Logging;
 using Moq;
 using System;
 using System.IO;
 using Xunit;
-using XmlTransactions = DataImporter.Services.Impl.Parsers.XmlTransactionParser.XmlTransactions;
 using XmlTransaction = DataImporter.Services.Impl.Parsers.XmlTransactionParser.XmlTransaction;
-using Microsoft.Extensions.Logging;
+using XmlTransactions = DataImporter.Services.Impl.Parsers.XmlTransactionParser.XmlTransactions;
 
 namespace DataImporter.Tests.Services.Impl.Parsers
 {

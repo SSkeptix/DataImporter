@@ -9,6 +9,12 @@ dotnet_diagnostic.SA1027.severity = error
 # SA1200: Using directives should be placed correctly
 dotnet_diagnostic.SA1200.severity = none
 
+# SA1208: System using directives should be placed before other using directives
+dotnet_diagnostic.SA1208.severity = none
+
+# SA1210: Using directives should be ordered alphabetically by namespace
+dotnet_diagnostic.SA1210.severity = error
+
 # SA1600: Elements should be documented
 dotnet_diagnostic.SA1600.severity = none
 
