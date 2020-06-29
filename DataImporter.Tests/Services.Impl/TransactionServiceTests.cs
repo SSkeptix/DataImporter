@@ -3,8 +3,10 @@ using DataImporter.Entities;
 using DataImporter.Repositories;
 using DataImporter.Services;
 using DataImporter.Services.Impl;
+using Microsoft.Extensions.Logging;
 using Moq;
 using System;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -25,9 +27,10 @@ namespace DataImporter.Tests.Services.Impl
 			this.fixture = new Fixture();
 
 			this.fileParserFactory = new Mock<IFileParserFactory>();
-			this.transactionRepository = new Mock<ITransactionRepository>();
+			var logger = new Mock<ILogger>();
+			this.transactionRepository = new Mock<ITransactionRepository>();	
 
-			this.subject = new TransactionService(this.fileParserFactory.Object, this.transactionRepository.Object);
+			this.subject = new TransactionService(this.fileParserFactory.Object, logger.Object, this.transactionRepository.Object);
 		}
 
 		[Fact]
@@ -72,6 +75,28 @@ namespace DataImporter.Tests.Services.Impl
 				// Act & Assert
 				Assert.ThrowsAsync<ArgumentException>(() => this.subject.ImportTransactionsFromFile(stream, fileName));
 				this.transactionRepository.VerifyNoOtherCalls();
+			}
+		}
+
+		[Fact]
+		public void ImportTransaction_RepositoryThownsExceptions_ThownsExceptions()
+		{
+			// Arrange
+			using (var stream = new MemoryStream())
+			{
+				var exception = new Exception();
+				var transactions = this.fixture.CreateMany<Transaction>().ToArray();
+				var fileName = this.fixture.Create<string>();
+
+				var parser = new Mock<IFileParser<Transaction>>();
+				parser.Setup(x => x.Parse(stream)).ReturnsAsync(transactions);
+
+				this.fileParserFactory.Setup(x => x.GetParser<Transaction>(fileName)).Returns(parser.Object);
+
+				this.transactionRepository.Setup(x => x.InsertTransaction(transactions)).ThrowsAsync(exception);
+
+				// Act & Assert
+				Assert.ThrowsAsync<DataException>(() => this.subject.ImportTransactionsFromFile(stream, fileName));
 			}
 		}
 	}
