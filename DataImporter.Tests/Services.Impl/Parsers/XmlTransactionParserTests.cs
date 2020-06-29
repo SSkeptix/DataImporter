@@ -19,7 +19,7 @@ namespace DataImporter.Tests.Services.Impl.Parsers
 
         public XmlTransactionParserTests()
         {
-            var logger = new Mock<ILogger>();
+            var logger = new Mock<ILogger<XmlTransactionParser>>();
             this.xmlFileReader = new Mock<IXmlFileReader>();
 
             this.subject = new XmlTransactionParser(logger.Object, this.xmlFileReader.Object);

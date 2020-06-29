@@ -12,11 +12,11 @@ namespace DataImporter.Services.Impl.Parsers
 {
     public class CsvTransactionParser : FileParser<Transaction>
     {
-        private readonly ILogger logger;
+        private readonly ILogger<CsvTransactionParser> logger;
         private readonly ICsvFileReader csvFileReader;
 
         public CsvTransactionParser(
-            ILogger logger,
+            ILogger<CsvTransactionParser> logger,
             ICsvFileReader csvFileReader)
         {
             this.logger = logger;

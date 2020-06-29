@@ -13,11 +13,11 @@ namespace DataImporter.Services.Impl.Parsers
 {
     public class XmlTransactionParser : FileParser<Transaction>
     {
-        private readonly ILogger logger;
+        private readonly ILogger<XmlTransactionParser> logger;
         private readonly IXmlFileReader xmlFileReader;
 
         public XmlTransactionParser(
-            ILogger logger,
+            ILogger<XmlTransactionParser> logger,
             IXmlFileReader xmlFileReader)
         {
             this.logger = logger;

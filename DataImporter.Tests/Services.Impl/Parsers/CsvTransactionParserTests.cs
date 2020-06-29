@@ -19,7 +19,7 @@ namespace DataImporter.Tests.Services.Impl.Parsers
         public CsvTransactionParserTests()
         {
             this.csvFileReader = new Mock<ICsvFileReader>();
-            var logger = new Mock<ILogger>();
+            var logger = new Mock<ILogger<CsvTransactionParser>>();
 
             this.subject = new CsvTransactionParser(logger.Object, this.csvFileReader.Object);
         }

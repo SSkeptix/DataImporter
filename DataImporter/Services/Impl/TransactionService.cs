@@ -11,12 +11,12 @@ namespace DataImporter.Services.Impl
     public class TransactionService : ITransactionService
     {
         private readonly IFileParserFactory fileParserFactory;
-        private readonly ILogger logger;
+        private readonly ILogger<TransactionService> logger;
         private readonly ITransactionRepository transactionRepository;
 
         public TransactionService(
             IFileParserFactory fileParserFactory,
-            ILogger logger,
+            ILogger<TransactionService> logger,
             ITransactionRepository transactionRepository)
         {
             this.fileParserFactory = fileParserFactory;
