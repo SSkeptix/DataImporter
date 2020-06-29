@@ -45,7 +45,7 @@ namespace DataImporter.Services
             {
                 var internalEntity = internalEntities[index];
 
-                if (!IsValid(internalEntity, validationRules, out var validationErrors))
+                if (!this.IsValid(internalEntity, validationRules, out var validationErrors))
                 {
                     errors.Add($"{typeof(TEntity).Name} [{index + 1}] is invalid. Details:" + Environment.NewLine
                         + validationErrors.Select(x => "\t" + x).Aggregate((a, b) => a + Environment.NewLine + b));

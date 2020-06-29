@@ -106,7 +106,7 @@ namespace DataImporter.Tests.Services.Impl.Parsers
         public void Parse_TransactionIdIsNull_ThrowsArgumentException(string id)
         {
             // Arrange
-            var xmlTransaction = ValidTransaction;
+            var xmlTransaction = this.ValidTransaction;
             xmlTransaction.Id = id;
 
             using (var sourceStream = new MemoryStream())
@@ -123,7 +123,7 @@ namespace DataImporter.Tests.Services.Impl.Parsers
         public void Parse_TransactionIdHasMoreThan50Characters_ThrowsArgumentException()
         {
             // Arrange
-            var xmlTransaction = ValidTransaction;
+            var xmlTransaction = this.ValidTransaction;
             xmlTransaction.Id = "1234567890 1234567890 1234567890 1234567890 1234567890";
 
             using (var sourceStream = new MemoryStream())
@@ -143,7 +143,7 @@ namespace DataImporter.Tests.Services.Impl.Parsers
         public void Parse_TransactionAmountIsNotValid_ThrowsArgumentException(string amount)
         {
             // Arrange
-            var xmlTransaction = ValidTransaction;
+            var xmlTransaction = this.ValidTransaction;
             xmlTransaction.PaymentDetails.Amount = amount;
 
             using (var sourceStream = new MemoryStream())
@@ -165,7 +165,7 @@ namespace DataImporter.Tests.Services.Impl.Parsers
         public void Parse_TransactionCurrencyCodeIsNotValid_ThrowsArgumentException(string currencyCode)
         {
             // Arrange
-            var xmlTransaction = ValidTransaction;
+            var xmlTransaction = this.ValidTransaction;
             xmlTransaction.PaymentDetails.CurrencyCode = currencyCode;
 
             using (var sourceStream = new MemoryStream())
@@ -184,7 +184,7 @@ namespace DataImporter.Tests.Services.Impl.Parsers
         public void Parse_TransactionCurrencyCodeIsValid_ReturnsMappedData(CurrencyCode expectedCurrencyCode, string currencyCode)
         {
             // Arrange
-            var xmlTransaction = ValidTransaction;
+            var xmlTransaction = this.ValidTransaction;
             xmlTransaction.PaymentDetails.CurrencyCode = currencyCode;
 
             using (var sourceStream = new MemoryStream())
@@ -208,7 +208,7 @@ namespace DataImporter.Tests.Services.Impl.Parsers
         public void Parse_TransactionDateIsNotValid_ThrowsArgumentException(string date)
         {
             // Arrange
-            var xmlTransaction = ValidTransaction;
+            var xmlTransaction = this.ValidTransaction;
             xmlTransaction.TransactionDate = date;
 
             using (var sourceStream = new MemoryStream())
@@ -225,7 +225,7 @@ namespace DataImporter.Tests.Services.Impl.Parsers
         public void Parse_TransactionDateIsValid_ReturnsMappedData()
         {
             // Arrange
-            var xmlTransaction = ValidTransaction;
+            var xmlTransaction = this.ValidTransaction;
             xmlTransaction.TransactionDate = "2019-02-21T22:04:59";
 
             using (var sourceStream = new MemoryStream())
@@ -248,7 +248,7 @@ namespace DataImporter.Tests.Services.Impl.Parsers
         public void Parse_TransactionStatusIsNotValid_ThrowsArgumentException(string status)
         {
             // Arrange
-            var xmlTransaction = ValidTransaction;
+            var xmlTransaction = this.ValidTransaction;
             xmlTransaction.Status = status;
 
             using (var sourceStream = new MemoryStream())
@@ -268,7 +268,7 @@ namespace DataImporter.Tests.Services.Impl.Parsers
         public void Parse_TransactionStatusIsValid_ReturnsMappedData(TransactionStatus expectedStatus, string status)
         {
             // Arrange
-            var xmlTransaction = ValidTransaction;
+            var xmlTransaction = this.ValidTransaction;
             xmlTransaction.Status = status;
 
             using (var sourceStream = new MemoryStream())

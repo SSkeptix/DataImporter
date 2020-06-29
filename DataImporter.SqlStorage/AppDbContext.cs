@@ -10,9 +10,9 @@ namespace DataImporter.SqlStorage
         public AppDbContext(DbContextOptions<AppDbContext> options)
             : base(options)
         {
-            ChangeTracker.AutoDetectChangesEnabled = false;
-            ChangeTracker.LazyLoadingEnabled = false;
-            ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
+            this.ChangeTracker.AutoDetectChangesEnabled = false;
+            this.ChangeTracker.LazyLoadingEnabled = false;
+            this.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
         }
     }
 }

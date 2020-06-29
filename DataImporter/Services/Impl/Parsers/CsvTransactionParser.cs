@@ -30,7 +30,7 @@ namespace DataImporter.Services.Impl.Parsers
 
             if (this.IsArrayValid(csvTransactions, ValidationRules, out var error))
             {
-                var transactions = csvTransactions.Select(Map).ToArray();
+                var transactions = csvTransactions.Select(this.Map).ToArray();
                 this.logger.LogTrace($"{nameof(CsvTransactionParser)} successfully parsed {transactions.Length} transactions");
                 return transactions;
             }

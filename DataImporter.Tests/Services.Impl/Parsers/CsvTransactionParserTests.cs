@@ -93,7 +93,7 @@ namespace DataImporter.Tests.Services.Impl.Parsers
         public void Parse_TransactionIdIsNull_ThrowsArgumentException(string id)
         {
             // Arrange
-            var csvTransaction = ValidTransaction;
+            var csvTransaction = this.ValidTransaction;
             csvTransaction.Id = id;
 
             using (var sourceStream = new MemoryStream())
@@ -110,7 +110,7 @@ namespace DataImporter.Tests.Services.Impl.Parsers
         public void Parse_TransactionIdHasMoreThan50Characters_ThrowsArgumentException()
         {
             // Arrange
-            var csvTransaction = ValidTransaction;
+            var csvTransaction = this.ValidTransaction;
             csvTransaction.Id = "1234567890 1234567890 1234567890 1234567890 1234567890";
 
             using (var sourceStream = new MemoryStream())
@@ -130,7 +130,7 @@ namespace DataImporter.Tests.Services.Impl.Parsers
         public void Parse_TransactionAmountIsNotValid_ThrowsArgumentException(string amount)
         {
             // Arrange
-            var csvTransaction = ValidTransaction;
+            var csvTransaction = this.ValidTransaction;
             csvTransaction.Amount = amount;
 
             using (var sourceStream = new MemoryStream())
@@ -152,7 +152,7 @@ namespace DataImporter.Tests.Services.Impl.Parsers
         public void Parse_TransactionCurrencyCodeIsNotValid_ThrowsArgumentException(string currencyCode)
         {
             // Arrange
-            var csvTransaction = ValidTransaction;
+            var csvTransaction = this.ValidTransaction;
             csvTransaction.CurrencyCode = currencyCode;
 
             using (var sourceStream = new MemoryStream())
@@ -171,7 +171,7 @@ namespace DataImporter.Tests.Services.Impl.Parsers
         public void Parse_TransactionCurrencyCodeIsValid_ReturnsMappedData(CurrencyCode expectedCurrencyCode, string currencyCode)
         {
             // Arrange
-            var csvTransaction = ValidTransaction;
+            var csvTransaction = this.ValidTransaction;
             csvTransaction.CurrencyCode = currencyCode;
 
             using (var sourceStream = new MemoryStream())
@@ -195,7 +195,7 @@ namespace DataImporter.Tests.Services.Impl.Parsers
         public void Parse_TransactionDateIsNotValid_ThrowsArgumentException(string date)
         {
             // Arrange
-            var csvTransaction = ValidTransaction;
+            var csvTransaction = this.ValidTransaction;
             csvTransaction.TransactionDate = date;
 
             using (var sourceStream = new MemoryStream())
@@ -212,7 +212,7 @@ namespace DataImporter.Tests.Services.Impl.Parsers
         public void Parse_TransactionDateIsValid_ReturnsMappedData()
         {
             // Arrange
-            var csvTransaction = ValidTransaction;
+            var csvTransaction = this.ValidTransaction;
             csvTransaction.TransactionDate = "20/02/2019 13:33:16";
 
             using (var sourceStream = new MemoryStream())
@@ -235,7 +235,7 @@ namespace DataImporter.Tests.Services.Impl.Parsers
         public void Parse_TransactionStatusIsNotValid_ThrowsArgumentException(string status)
         {
             // Arrange
-            var csvTransaction = ValidTransaction;
+            var csvTransaction = this.ValidTransaction;
             csvTransaction.Status = status;
 
             using (var sourceStream = new MemoryStream())
@@ -255,7 +255,7 @@ namespace DataImporter.Tests.Services.Impl.Parsers
         public void Parse_TransactionStatusIsValid_ReturnsMappedData(TransactionStatus expectedStatus, string status)
         {
             // Arrange
-            var csvTransaction = ValidTransaction;
+            var csvTransaction = this.ValidTransaction;
             csvTransaction.Status = status;
 
             using (var sourceStream = new MemoryStream())

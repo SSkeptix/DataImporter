@@ -22,7 +22,7 @@ namespace DataImporter.Services.Impl
         {
             var fileExtension = this.fileExtensionParser.ParseFileExtension(filePath);
 
-            var parser = fileParsers.Single(x => x.FileExtension == fileExtension && x.DataType == typeof(T));
+            var parser = this.fileParsers.Single(x => x.FileExtension == fileExtension && x.DataType == typeof(T));
             return (IFileParser<T>)parser;
         }
     }

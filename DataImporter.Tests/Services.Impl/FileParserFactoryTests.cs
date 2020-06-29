@@ -43,13 +43,13 @@ namespace DataImporter.Tests.Services.Impl
 
             var parsers = new List<IFileParser>
             {
-                csvTestEntityAParser.Object,
-                xmlTestEntityAParser.Object,
-                csvTestEntityBParser.Object,
-                xmlTestEntityBParser.Object,
+                this.csvTestEntityAParser.Object,
+                this.xmlTestEntityAParser.Object,
+                this.csvTestEntityBParser.Object,
+                this.xmlTestEntityBParser.Object,
             };
 
-            this.subject = new FileParserFactory(fileExtensionParser.Object, parsers);
+            this.subject = new FileParserFactory(this.fileExtensionParser.Object, parsers);
         }
 
         [Theory]
@@ -59,7 +59,7 @@ namespace DataImporter.Tests.Services.Impl
         {
             // Arrange
             var fileName = this.fixture.Create<string>();
-            fileExtensionParser
+            this.fileExtensionParser
                 .Setup(x => x.ParseFileExtension(fileName))
                 .Returns(fileExtension);
 

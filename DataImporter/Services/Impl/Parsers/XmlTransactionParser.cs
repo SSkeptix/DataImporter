@@ -31,7 +31,7 @@ namespace DataImporter.Services.Impl.Parsers
 
             if (this.IsArrayValid(xmlTransactions, ValidationRules, out var error))
             {
-                var transactions = xmlTransactions.Select(Map).ToArray();
+                var transactions = xmlTransactions.Select(this.Map).ToArray();
                 this.logger.LogTrace($"{nameof(XmlTransactionParser)} successfully parsed {transactions.Length} transactions");
                 return Task.FromResult(transactions);
             }
