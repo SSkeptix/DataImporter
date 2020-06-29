@@ -3,7 +3,7 @@ using System.Xml.Serialization;
 
 namespace DataImporter.FileHandler.Impl
 {
-    public class XmlFileReader
+    public class XmlFileReader : IXmlFileReader
     {
         public T ReadFile<T>(Stream sourceStream)
             where T : class

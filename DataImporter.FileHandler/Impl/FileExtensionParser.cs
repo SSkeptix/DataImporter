@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace DataImporter.FileHandler.Impl
 {
-    public class FileExtensionParser
+    public class FileExtensionParser : IFileExtensionParser
     {
         public FileExtension ParseFileExtension(string filePath)
         {

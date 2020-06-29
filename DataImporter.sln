@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataImporter.Tests", "DataI
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{D19A29CE-493D-40D7-9F6B-16CF8083C131}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataImporter.SqlStorage", "DataImporter.SqlStorage\DataImporter.SqlStorage.csproj", "{B896B792-0576-44A7-9BCB-71674109A640}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataImporter.SqlStorage", "DataImporter.SqlStorage\DataImporter.SqlStorage.csproj", "{B896B792-0576-44A7-9BCB-71674109A640}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
