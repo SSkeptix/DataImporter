@@ -2,7 +2,6 @@
 using DataImporter.Domain.Enums;
 using DataImporter.FileHandler;
 using DataImporter.Models;
-using Infrastructure;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Globalization;
@@ -67,7 +66,7 @@ namespace DataImporter.Services.Impl.Parsers
             },
             new ValidationRule<XmlTransaction>
             {
-                Rule = x => EnumHelper.TryParse<CurrencyCode>(x.PaymentDetails.CurrencyCode, StringComparison.InvariantCulture, out _),
+                Rule = x => Enum.TryParse<CurrencyCode>(x.PaymentDetails.CurrencyCode, false, out _),
                 ErrorMessage = "Currency Code has invalid value or empty",
             },
             new ValidationRule<XmlTransaction>
@@ -77,7 +76,7 @@ namespace DataImporter.Services.Impl.Parsers
             },
             new ValidationRule<XmlTransaction>
             {
-                Rule = x => EnumHelper.TryParse<TransactionStatus>(x.Status, StringComparison.InvariantCulture, out _),
+                Rule = x => Enum.TryParse<TransactionStatus>(x.Status, false, out _),
                 ErrorMessage = "Status has invalid value or empty",
             },
         };
@@ -88,9 +87,9 @@ namespace DataImporter.Services.Impl.Parsers
             {
                 Id = xmlTransaction.Id,
                 Amount = decimal.Parse(xmlTransaction.PaymentDetails.Amount),
-                CurrencyCode = EnumHelper.Parse<CurrencyCode>(xmlTransaction.PaymentDetails.CurrencyCode, StringComparison.InvariantCulture),
+                CurrencyCode = Enum.Parse<CurrencyCode>(xmlTransaction.PaymentDetails.CurrencyCode, false),
                 TransactionDate = DateTime.ParseExact(xmlTransaction.TransactionDate, TransactionDateFormat, null),
-                Status = EnumHelper.Parse<TransactionStatus>(xmlTransaction.Status, StringComparison.InvariantCulture),
+                Status = Enum.Parse<TransactionStatus>(xmlTransaction.Status, false),
             };
         }
 

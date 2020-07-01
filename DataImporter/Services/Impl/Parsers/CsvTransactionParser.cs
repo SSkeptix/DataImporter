@@ -2,7 +2,6 @@
 using DataImporter.Domain.Enums;
 using DataImporter.FileHandler;
 using DataImporter.Models;
-using Infrastructure;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Globalization;
@@ -66,7 +65,7 @@ namespace DataImporter.Services.Impl.Parsers
             },
             new ValidationRule<CsvTransaction>
             {
-                Rule = x => EnumHelper.TryParse<CurrencyCode>(x.CurrencyCode, StringComparison.InvariantCulture, out _),
+                Rule = x => Enum.TryParse<CurrencyCode>(x.CurrencyCode, false, out _),
                 ErrorMessage = "Currency Code has invalid value or empty",
             },
             new ValidationRule<CsvTransaction>
@@ -76,7 +75,7 @@ namespace DataImporter.Services.Impl.Parsers
             },
             new ValidationRule<CsvTransaction>
             {
-                Rule = x => EnumHelper.TryParse<CsvTransactionStatus>(x.Status, StringComparison.InvariantCulture, out _),
+                Rule = x => Enum.TryParse<CsvTransactionStatus>(x.Status, false, out _),
                 ErrorMessage = "Status has invalid value or empty",
             },
         };
@@ -87,9 +86,9 @@ namespace DataImporter.Services.Impl.Parsers
             {
                 Id = csvTransaction.Id,
                 Amount = decimal.Parse(csvTransaction.Amount),
-                CurrencyCode = EnumHelper.Parse<CurrencyCode>(csvTransaction.CurrencyCode, StringComparison.InvariantCulture),
+                CurrencyCode = Enum.Parse<CurrencyCode>(csvTransaction.CurrencyCode, false),
                 TransactionDate = DateTime.ParseExact(csvTransaction.TransactionDate, TransactionDateFormat, null),
-                Status = EnumHelper.Parse<CsvTransactionStatus>(csvTransaction.Status, StringComparison.InvariantCulture) switch
+                Status = Enum.Parse<CsvTransactionStatus>(csvTransaction.Status, false) switch
                 {
                     CsvTransactionStatus.Approved => TransactionStatus.Approved,
                     CsvTransactionStatus.Failed => TransactionStatus.Rejected,
