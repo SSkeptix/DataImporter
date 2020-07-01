@@ -1,12 +1,11 @@
-﻿using DataImporter.Entities;
-using DataImporter.Models;
-using DataImporter.Repositories;
-using Infrastructure;
+﻿using DataImporter.DataAccess.Models;
+using DataImporter.DataAccess.Repositories;
+using DataImporter.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace DataImporter.SqlStorage.Repositories
+namespace DataImporter.DataAccess.Impl.MsSql.Repositories
 {
     public class TransactionRepository : ITransactionRepository
     {

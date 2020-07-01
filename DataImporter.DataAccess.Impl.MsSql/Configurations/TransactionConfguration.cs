@@ -1,8 +1,8 @@
-﻿using DataImporter.Entities;
+﻿using DataImporter.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace DataImporter.SqlStorage.Configurations
+namespace DataImporter.DataAccess.Impl.MsSql.Configurations
 {
     internal class TransactionConfguration : IEntityTypeConfiguration<Transaction>
     {

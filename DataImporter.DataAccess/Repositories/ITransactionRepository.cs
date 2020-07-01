@@ -1,9 +1,8 @@
-﻿using DataImporter.Entities;
-using DataImporter.Models;
-using Infrastructure;
+﻿using DataImporter.DataAccess.Models;
+using DataImporter.Domain.Entities;
 using System.Threading.Tasks;
 
-namespace DataImporter.Repositories
+namespace DataImporter.DataAccess.Repositories
 {
     public interface ITransactionRepository
     {

@@ -1,6 +1,6 @@
-﻿using DataImporter.Entities;
-using DataImporter.Models;
-using DataImporter.Repositories;
+﻿using DataImporter.DataAccess.Models;
+using DataImporter.DataAccess.Repositories;
+using DataImporter.Domain.Enums;
 using DataImporter.Web.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;

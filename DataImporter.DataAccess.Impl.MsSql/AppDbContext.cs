@@ -1,8 +1,8 @@
-﻿using DataImporter.Entities;
-using DataImporter.SqlStorage.Configurations;
+﻿using DataImporter.DataAccess.Impl.MsSql.Configurations;
+using DataImporter.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace DataImporter.SqlStorage
+namespace DataImporter.DataAccess.Impl.MsSql
 {
     public class AppDbContext : DbContext
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace DataImporter.SqlStorage.Migrations
+namespace DataImporter.DataAccess.Impl.MsSql.Migrations
 {
     public partial class Initial : Migration
     {

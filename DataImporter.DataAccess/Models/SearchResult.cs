@@ -1,4 +1,4 @@
-﻿namespace Infrastructure
+﻿namespace DataImporter.DataAccess.Models
 {
     public class SearchResult<T>
         where T : class

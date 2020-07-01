@@ -25,9 +25,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DataImporter.DataAccess.Impl.MsSql\DataImporter.DataAccess.Impl.MsSql.csproj" />
+    <ProjectReference Include="..\DataImporter.DataAccess\DataImporter.DataAccess.csproj" />
+    <ProjectReference Include="..\DataImporter.Domain\DataImporter.Domain.csproj" />
     <ProjectReference Include="..\DataImporter.FileHandler\DataImporter.FileHandler.csproj" />
-    <ProjectReference Include="..\DataImporter.SqlStorage\DataImporter.SqlStorage.csproj" />
     <ProjectReference Include="..\DataImporter\DataImporter.csproj" />
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

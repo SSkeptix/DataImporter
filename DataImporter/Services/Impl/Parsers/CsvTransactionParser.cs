@@ -1,4 +1,5 @@
-﻿using DataImporter.Entities;
+﻿using DataImporter.Domain.Entities;
+using DataImporter.Domain.Enums;
 using DataImporter.FileHandler;
 using DataImporter.Models;
 using Infrastructure;

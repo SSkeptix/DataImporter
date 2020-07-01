@@ -1,7 +1,7 @@
-﻿using DataImporter.Entities;
+﻿using DataImporter.Domain.Enums;
 using System;
 
-namespace DataImporter.Models
+namespace DataImporter.DataAccess.Models
 {
     public class TransactionSearchOptions
     {

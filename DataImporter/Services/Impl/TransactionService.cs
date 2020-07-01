@@ -1,5 +1,5 @@
-﻿using DataImporter.Entities;
-using DataImporter.Repositories;
+﻿using DataImporter.DataAccess.Repositories;
+using DataImporter.Domain.Entities;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Data;

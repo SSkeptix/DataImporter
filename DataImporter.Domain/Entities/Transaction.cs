@@ -1,6 +1,7 @@
-﻿using System;
+﻿using DataImporter.Domain.Enums;
+using System;
 
-namespace DataImporter.Entities
+namespace DataImporter.Domain.Entities
 {
     public class Transaction
     {

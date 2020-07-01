@@ -1,6 +1,6 @@
 ﻿using AutoFixture;
-using DataImporter.Entities;
-using DataImporter.Repositories;
+using DataImporter.DataAccess.Repositories;
+using DataImporter.Domain.Entities;
 using DataImporter.Services;
 using DataImporter.Services.Impl;
 using Microsoft.Extensions.Logging;

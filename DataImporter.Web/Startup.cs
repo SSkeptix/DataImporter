@@ -1,11 +1,11 @@
+using DataImporter.DataAccess.Impl.MsSql;
+using DataImporter.DataAccess.Impl.MsSql.Repositories;
+using DataImporter.DataAccess.Repositories;
 using DataImporter.FileHandler;
 using DataImporter.FileHandler.Impl;
-using DataImporter.Repositories;
 using DataImporter.Services;
 using DataImporter.Services.Impl;
 using DataImporter.Services.Impl.Parsers;
-using DataImporter.SqlStorage;
-using DataImporter.SqlStorage.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -30,7 +30,7 @@ namespace DataImporter.Web
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(
                     this.Configuration.GetConnectionString("DefaultConnection"),
-                    x => x.MigrationsAssembly("DataImporter.SqlStorage")));
+                    x => x.MigrationsAssembly("DataImporter.DataAccess.Impl.MsSql")));
 
             services.AddRazorPages();
 
