@@ -1,6 +1,5 @@
-﻿@page
-@using DataImporter.Domain.Enums
-@model DataImporter.Web.Pages.Transactions.SearchModel
+﻿@using DataImporter.Domain.Enums
+@model DataImporter.Web.Models.Transactions.SearchViewModel
 @{
     ViewData["Title"] = "Transactions";
 }
@@ -12,27 +11,23 @@
     <button id="reset-button" class="btn btn-warning btn-sm" style="margin-bottom: 0.5em;">Reset</button>
     <div class="form-group">
         <label>Currency</label>
-        <select id="currency" asp-for="Currency" asp-items="Html.GetEnumSelectList<CurrencyCode>()" class="form-control">
+        <select id="currency" asp-for="SearchOptions.Currency" asp-items="Html.GetEnumSelectList<CurrencyCode>()" class="form-control">
             <option value="">Select</option>
         </select>
     </div>
     <div class="form-group">
         <label>Status</label>
-        <select id="status" asp-for="Status" asp-items="Html.GetEnumSelectList<TransactionStatus>()" class="form-control">
+        <select id="status" asp-for="SearchOptions.Status" asp-items="Html.GetEnumSelectList<TransactionStatus>()" class="form-control">
             <option value="">Select</option>
         </select>
     </div>
     <div class="form-group">
         <label>From Date</label>
-        <input id="from-date" asp-for="FromDate" class="form-control" type="datetime-local" />
+        <input id="from-date" asp-for="SearchOptions.FromDate" class="form-control" type="datetime-local" />
     </div>
     <div class="form-group">
         <label>To Date</label>
-        <input id="to-date" asp-for="ToDate" class="form-control" type="datetime-local" />
-    </div>
-    <div class="form-group custom-control custom-checkbox">
-        <input id="json" class="custom-control-input" type="checkbox" />
-        <label class="custom-control-label" for="json">Json View</label>
+        <input id="to-date" asp-for="SearchOptions.ToDate" class="form-control" type="datetime-local" />
     </div>
     <button id="filter-button" class="btn btn-success">Filter</button>
 </div>
@@ -72,7 +67,6 @@
                 Status: $("#status").val(),
                 FromDate: $("#from-date").val(),
                 ToDate: $("#to-date").val(),
-                Json: $("#json").is(':checked'),
             };
 
             const url = window.location.origin + window.location.pathname + "?" + $.param(queryParams);

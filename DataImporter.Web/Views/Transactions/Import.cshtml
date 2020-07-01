@@ -1,6 +1,4 @@
-﻿@page
-@model DataImporter.Web.Pages.Transactions.ImportModel
-@{
+﻿@{
     ViewData["Title"] = "Transactions | Import";
 }
 
@@ -18,7 +16,7 @@
     <script>
         function notify(level, msg) {
             var alerts = $("#alerts")[0];
-            alerts.innerHTML += 
+            alerts.innerHTML +=
                 `<div class="alert alert-${level} alert-dismissible fade show" role="alert">
                   ${msg}
                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -38,7 +36,7 @@
             let formData = new FormData();
             formData.append("file", files[0]);
 
-            fetch("Import", {
+            fetch("ImportPost", {
                 method: "POST",
                 headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
                 body: formData
